@@ -1,6 +1,6 @@
 const{test, expect} = require('@playwright/test');
 
-test.only('CaterxpertTest Login', async ({page})=>{
+test.only('CaterxpertCat Schema Login', async ({page})=>{
     await page.goto("https://catapps.aquilasoftware.com/CaterXpert.action");
     
     console.log("Page Title is " + await page.title());
