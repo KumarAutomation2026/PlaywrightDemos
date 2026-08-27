@@ -1,6 +1,6 @@
 const{test, expect} = require('@playwright/tests');
 
-test.only('CaterxpertCat Schema Login', async ({page})=>{
+test.only('Assignment', async ({page})=>{
     await page.goto("https://rahulshettyacademy.com/client");
     const Email = await page.locator('[type="email"]');
     const password=await page.locator('[type="password"]');
