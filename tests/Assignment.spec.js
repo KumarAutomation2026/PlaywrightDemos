@@ -13,6 +13,7 @@ test.only('Assignment', async ({page})=>{
     const ProductName= await ProductTitles.textContent()   ;
     console.log("First product title is" + ProductName);
     await page.pause();// comment this line to run the test without pausing
+    //Hello there
 
 
 });
