@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import { use } from 'react';
 
 /**
  * Read environment variables from file.
@@ -14,6 +15,11 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  
+/*use: {
+    actionTimeout: 10 * 1000,
+    navigationTimeout: 30 * 1000,
+  },*/
 
   /* Run tests in files in parallel */
   fullyParallel: false,
