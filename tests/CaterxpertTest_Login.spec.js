@@ -30,13 +30,19 @@ test('CaterxpertCat Schema Login', async ({page})=>{
     //await page.waitForLoadState('networkidle', { timeout: 30000 });
 
     // Wait until Sales New application is actually ready
-    await page.waitForLoadState('domcontentloaded');
-    //await page.waitForURL('/CaterXpertSales/');
+    //await page.waitForLoadState('domcontentloaded');
+
+    /*await page.waitForURL('/CaterXpertSales/');
     await expect(page.getByText('Event Listing', { exact: true })).toBeVisible({timeout: 90000});
+    console.log('Sales New application loaded successfully'); */
 
     //Open Hamburger menu 
-    const HamburgerMenu= await page.getByRole('link' , {name : 'menu'});
-    await HamburgerMenu.click();
+    const HamburgerMenu = page.getByText('menu', { exact: true });
+    //await expect(HamburgerMenu.first()).toBeVisible({timeout: 90000});
+    await HamburgerMenu.first().waitFor({state: 'visible', timeout: 90000 });
+    await HamburgerMenu.first().click();
+    /*const HamburgerMenu= await page.getByRole('button' , {name : 'menu'});
+    await HamburgerMenu.click();*/
 
     //click Create Event link to go to the Create Event page
     const CreateEvent= await page.getByRole('link', { name: 'Create Event' });
@@ -44,7 +50,7 @@ test('CaterxpertCat Schema Login', async ({page})=>{
 
     //await page.getByRole('textbox', { placeholder: 'Event #' }).fill('');
     await page.title();
-   
+    await page.pause(5000);
     //await page.waitForLoadState('networkidle', { timeout: 2000 });
     //await page.screenshot({path: "C:\\Users\\Syena Developer\\OneDrive\\Pictures\\Screenshots\\PlaywrightScreenshots\\CaterxpertLogin.png"});
    
